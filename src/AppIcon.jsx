@@ -6,7 +6,7 @@ export default function AppIcon({ src }) {
     const initialPos = uri.lastIndexOf("/") + 1;
     let letterCount = uri.lastIndexOf(".") - uri.lastIndexOf("/") - 1;
     if(import.meta.env.PROD) {
-      letterCount -= 8
+      letterCount -= 9
     }
     const noHyphens = uri.substr(initialPos, letterCount).split("-").join(" ");
     return noHyphens
