@@ -35,7 +35,7 @@ export default function PhoneFrame({ children }) {
         bg-gray-900 border-t-[0.5px]
         rounded-r-[0.09rem]
          border-opacity-40
-        absolute right-[-0.335rem] top-[28%]
+        absolute right-[-0.353rem] top-[28%]
         shadow box-border">   
         </div>
 
