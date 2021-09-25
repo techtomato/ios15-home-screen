@@ -57,7 +57,7 @@ function App() {
   return (
     <div class="min-w-screen min-h-screen flex 
     items-center justify-center relative 
-    overflow-hidden py-56">
+    overflows-y-hidden py-56">
       <img src={ios15bg} 
       class="absolute blur-2xl inset-0 
       min-w-[120%] min-h-[120%] -left-20" />
