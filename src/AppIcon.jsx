@@ -4,7 +4,7 @@ export default function AppIcon({ src }) {
 
   const getAppNameFromURI = (uri) => {
     const initialPos = uri.lastIndexOf("/") + 1;
-    const letterCount = uri.lastIndexOf(".") - uri.lastIndexOf("/") - 1;
+    let letterCount = uri.lastIndexOf(".") - uri.lastIndexOf("/") - 1;
     if(import.meta.env.PROD) {
       letterCount -= 8
     }
