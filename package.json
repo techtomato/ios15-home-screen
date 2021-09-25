@@ -1,4 +1,5 @@
 {
+  "homepage": "https://github.com/techtomato/ios15-home-screen",
   "name": "vite-template-solid",
   "version": "0.0.0",
   "description": "",
@@ -6,11 +7,14 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist/"
   },
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^10.3.5",
+    "gh-pages": "^3.2.3",
     "postcss": "^8.3.7",
     "tailwindcss": "^2.2.15",
     "vite": "^2.5.1",
