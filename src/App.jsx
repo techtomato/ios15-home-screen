@@ -55,7 +55,7 @@ function App() {
 
 
   return (
-    <div class="w-screen min-h-screen flex 
+    <div class="min-w-screen min-h-screen flex 
     items-center justify-center relative 
     overflow-hidden py-56">
       <img src={ios15bg} 
