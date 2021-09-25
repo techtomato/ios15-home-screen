@@ -1,76 +1,88 @@
-import { createSignal, createEffect } from "solid-js";
+import { createSignal, onCleanup, onMount } from "solid-js";
 import BookWidget from "./BookWidget";
 import HomeGrid from "./HomeGrid";
 import HomeScreenDock from "./HomeScreenDock";
 import PhoneFrame from "./phone-frame";
 import WeatherWidget from "./WeatherWidget";
-import ios15bg from './assets/ios15bg.jpg'
+import ios15bg from "./assets/ios15bg.jpg";
+
 function App() {
-  const [widgets] = createSignal(
-    [
-      {
-        label: 'books',
-        component: BookWidget 
-      },
-      {
-        label: 'weather',
-        component: WeatherWidget
-      }
-    ]
-  )
-  const [dockIcons, setDockIcons] = createSignal([])
-  const [homeIcons, setHomeIcons] = createSignal([])
- 
-  createEffect(() => {
-    const appIconModules = 
-    import.meta.glob("./assets/apps/*.png");
-    let i = 0
-    let j = 0
+  const [widgets] = createSignal([
+    {
+      label: "books",
+      component: BookWidget,
+    },
+    {
+      label: "weather",
+      component: WeatherWidget,
+    },
+  ]);
+  const [dockIcons, setDockIcons] = createSignal([]);
+  const [homeIcons, setHomeIcons] = createSignal([]);
+  const [isDismissed, setIsDismissed] = createSignal(false);
+  let timeoutCup
+  onMount(() => {
+    const appIconModules = import.meta.glob("./assets/apps/*.png");
+    let i = 0;
+    let j = 0;
     for (const path in appIconModules) {
       appIconModules[path]().then((mod) => {
-        if (mod.default.lastIndexOf('__') > mod.default.lastIndexOf('/')) {
-        setDockIcons([...dockIcons(),
-          {type: "icon", uri: mod.default}]);
-        }
-        else {
-          if (i === 12 || i === 18) {
+        if (mod.default.lastIndexOf("__") > mod.default.lastIndexOf("/")) {
+          setDockIcons([...dockIcons(), { type: "icon", uri: mod.default }]);
+        } else {
+          if (i === 12 || i === 18) {
             setHomeIcons([
               ...homeIcons(),
-           {
-              type: "widget", 
-              component: widgets()[j]?.component,
-              label: widgets()[j]?.label }
-          ])
-          j++
+              {
+                type: "widget",
+                component: widgets()[j]?.component,
+                label: widgets()[j]?.label,
+              },
+            ]);
+            j++;
           }
-          setHomeIcons([
-            ...homeIcons(),
-         {type: "icon", uri: mod.default}
-        ])}
-        i++
+          setHomeIcons([...homeIcons(), { type: "icon", uri: mod.default }]);
+        }
+        i++;
       });
-    
     }
-  }, []);
 
+    setTimeout(() => setIsDismissed(true), 15000)
+
+   
+  });
+
+  onCleanup(() => clearTimeout(timeoutCup))
 
   return (
-    <div class="min-w-[640px] min-h-screen flex 
+    <div
+      class="min-w-[640px] min-h-screen flex 
     items-center justify-center relative 
-     py-56">
-      <img src={ios15bg} 
-      class="absolute blur-2xl inset-0 
-      min-w-[120%] min-h-[120%] -left-20" />
-     <PhoneFrame>
-       <div class="h-full grid grid-rows-6">
-       <div class="row-span-5">
-        <HomeGrid homeIcons={homeIcons} />
-        </div>
-        <div class="flex justify-center 
-        items-end">
-          <HomeScreenDock dockIcons={dockIcons} />
+     py-56"
+    >
+     <div class="px-3 py-0.5 rounded-lg backdrop-brightness-[1.15] backdrop-blur-lg
+     text-gray-800 font-bold absolute mx-auto top-4 z-40 shadow-sm">
+        <a href="https://www.instagram.com/techtomato">techtomato @ ig</a>
+     </div>
+
+      <img
+        src={ios15bg}
+        class="absolute blur-2xl brightness-75 inset-0 
+      min-w-[120%] min-h-[120%] -left-20 z-0"
+      />
+      <PhoneFrame isDismissed={isDismissed}>
+
+       
+        <div class="h-full grid grid-rows-6">
+          <div class="row-span-5">
+            <HomeGrid homeIcons={homeIcons} />
           </div>
-      
+          <div
+            class="flex justify-center 
+        items-end"
+          >
+            <HomeScreenDock dockIcons={dockIcons} />
+          </div>
         </div>
       </PhoneFrame>
     </div>
