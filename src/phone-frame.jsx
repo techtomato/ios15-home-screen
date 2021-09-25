@@ -66,6 +66,8 @@ export default function PhoneFrame({ children, isDismissed }) {
         class="absolute inset-0 pointer-events-none w-[470px] 
         h-[1067px] rounded-[70px] m-auto shadow-3xl-white z-20"
       ></div>
+
+      {/* Screen content view */}
       <div
         class="w-[470px]
     h-[1067px] rounded-[70px] flex flex-col

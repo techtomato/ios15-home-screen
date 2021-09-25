@@ -3,7 +3,7 @@ export default function Notification( { isDismissed }) {
 
     return(
           <div
-            class={`absolute top-0 p-5 mt-[3.5rem] ml-2 backdrop-filter z-[-1]
+            class={`absolute top-0 p-5 mt-[3.5rem] ml-[9px] backdrop-filter z-[-1]
        backdrop-blur-[42px] backdrop-brightness-[1.3] rounded-[1.35rem] text-black font-medium
        max-w-[452px] shadow-md  transition-transform duration-300 ${
          isDismissed() ? "translate-y-[-200px] " : "translate-y-[0]"
