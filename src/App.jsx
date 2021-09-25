@@ -23,7 +23,7 @@ function App() {
  
   createEffect(() => {
     const appIconModules = 
-    import.meta.glob("./assets/app-icons/*.png");
+    import.meta.glob("./assets/apps/*.png");
     let i = 0
     let j = 0
     for (const path in appIconModules) {

@@ -1,4 +1,4 @@
-import { createEffect } from "solid-js";
+import { onMount } from "solid-js";
 
 export default function AppIcon({ src }) {
 
@@ -28,7 +28,7 @@ export default function AppIcon({ src }) {
         class="text-white
       font-normal text-sm flex
       justify-center capitalize
-      drop-shadow-sm"
+      drop-shadow-sm whitespace-nowrap"
       >
         {getAppNameFromURI(src)}
 

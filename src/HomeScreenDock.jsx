@@ -1,4 +1,4 @@
-import { For } from "solid-js";
+import { createEffect, For, onMount } from "solid-js";
 
 export default function HomeScreenDock({ dockIcons }) {
   return (
@@ -10,17 +10,17 @@ export default function HomeScreenDock({ dockIcons }) {
         grid-cols-4 gap-x-8 shadow-sm
         py-[1.40rem] px-[1.35rem]"
     >
-        
       <For each={dockIcons()}>
-        {(appIcon) => 
-        <span class="flex justify-center items-center">
-        <span
-        class="overflow-hidden
+        {(appIcon) => (
+          <span class="flex justify-center items-center">
+            <span
+              class="overflow-hidden
             rounded-[1.18rem] w-[4.3rem]"
-      >
-        <img src={appIcon.uri} class="w-[4.3rem] drop-shadow-sm" />
-        </span>
-        </span>}
+            >
+              <img src={appIcon.uri} class="w-[4.3rem] drop-shadow-sm" />
+            </span>
+          </span>
+        )}
       </For>
     </div>
   );
