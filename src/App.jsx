@@ -60,8 +60,8 @@ function App() {
     items-center justify-center relative 
      py-56"
     >
-     <div class="px-3 py-0.5 rounded-lg backdrop-brightness-[1.15] backdrop-blur-lg
-     text-gray-800 font-bold absolute mx-auto top-4 z-40 shadow-sm">
+     <div class="px-3 py-0.5 rounded-lg backdrop-brightness-[1.13] backdrop-blur-lg
+     text-gray-700 font-bold absolute mx-auto top-4 z-40 shadow-sm">
         <a href="https://www.instagram.com/techtomato">techtomato @ ig</a>
      </div>
 
