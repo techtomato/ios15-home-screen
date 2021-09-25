@@ -5,6 +5,9 @@ export default function AppIcon({ src }) {
   const getAppNameFromURI = (uri) => {
     const initialPos = uri.lastIndexOf("/") + 1;
     const letterCount = uri.lastIndexOf(".") - uri.lastIndexOf("/") - 1;
+    if(process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
+      letterCount -= 8
+    }
     const noHyphens = uri.substr(initialPos, letterCount).split("-").join(" ");
     return noHyphens
   };
