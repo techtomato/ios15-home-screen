@@ -1,4 +1,4 @@
-import ios15bg from "./assets/ios15bg.png";
+import ios15bg from "./assets/ios15bg.jpg";
 import StatusIcons from "./StatusIcons";
 import insetCorner from './assets/inset-corner.svg'
 export default function PhoneFrame({ children }) {
