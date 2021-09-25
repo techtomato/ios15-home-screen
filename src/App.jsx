@@ -28,7 +28,7 @@ function App() {
     let j = 0
     for (const path in appIconModules) {
       appIconModules[path]().then((mod) => {
-        if (i<4) {
+        if (mod.default.lastIndexOf('__') > mod.default.lastIndexOf('/')) {
         setDockIcons([...dockIcons(),
           {type: "icon", uri: mod.default}]);
         }
