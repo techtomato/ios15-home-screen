@@ -4,7 +4,7 @@ import HomeGrid from "./HomeGrid";
 import HomeScreenDock from "./HomeScreenDock";
 import PhoneFrame from "./phone-frame";
 import WeatherWidget from "./WeatherWidget";
-import ios15bg from './assets/ios15bg.png'
+import ios15bg from './assets/ios15bg.jpg'
 function App() {
   const [widgets] = createSignal(
     [
