@@ -47,7 +47,7 @@ function App() {
       });
     }
 
-    setTimeout(() => setIsDismissed(true), 15000)
+    setTimeout(() => setIsDismissed(true), 13000)
 
    
   });
@@ -60,10 +60,13 @@ function App() {
     items-center justify-center relative 
      py-56"
     >
-     <div class="px-3 py-0.5 rounded-lg backdrop-brightness-[1.13] backdrop-blur-lg
-     text-gray-700 font-bold absolute mx-auto top-4 z-40 shadow-sm">
-        <a href="https://www.instagram.com/tectomato">techtomato @ ig</a>
+      <div class="absolute z-40 top-4 flex space-x-1">
+      <div class="px-3 py-0.5 rounded-lg backdrop-brightness-[1.13] backdrop-blur-lg
+     text-gray-700 font-bold  shadow-sm">
+        <a href="https://www.instagram.com/tectomato">📷 techtomato @ ig</a>
      </div>
+      </div>
+     
 
       <img
         src={ios15bg}
